@@ -1,0 +1,4 @@
+Row(businessID='9YUi9j0k4Ps-yGOwgw-HOw', full_address='767 E Green Strear buildingPasadenaPasadena, CA 91101', categories='List(Auto Repair, Automotive)', Avg_rating=5.0)
+Row(businessID='I-B8uJC-rYU1bInuk1BbrQ', full_address='1777 W Arrow RtSte 505Upland, CA 91786', categories='List(Home Services, Contractors)', Avg_rating=5.0)
+Row(businessID='0PzBMItpYXEc1b1jAvcPuA', full_address='2058 N Mills AveSte 313Claremont, CA 91711', categories='List(Property Management, Home Services, Real Estate)', Avg_rating=5.0)
+Row(businessID='aABU8bWB9h0B5vGZLpfKJw', full_address='University of Southern California699 Exposition BlvdSouth Los AngelesLos Angeles, CA 90089', categories='List(Colleges & Universities, Education)', Avg_rating=5.0)

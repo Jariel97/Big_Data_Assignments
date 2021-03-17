@@ -1,0 +1,49 @@
+
+
+Setup:
+hdfs commands:
+ hdfs dfs -mkdir /input
+ hdfs dfs -put ratings.dat /input/ratings.dat
+ hdfs dfs -put movies.dat /input/movies.dat
+ hdfs dfs -put itemusermat.data /input/itemusermat.data
+ hdfs dfs -put glass.dat /input/glass.dat
+
+kafka commands:
+First run zookeeper:
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+Run Kafka:
+bin/kafka-server-start.sh config/server.properties
+
+Create topic :
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic twitter
+
+Run ElasticEngine:
+bin/elasticsearch
+
+Run Kibana:
+bin/kibana
+
+Check localhost to see if servers are running.
+zookeeper  ->  kafka  ->  Elasticsearch  ->  Kibana 
+ports: 
+Kibana: 5601
+Kafka: 9092
+Zookeeper: 2181, 2182
+Elasticsearch: 9200
+
+
+
+for question1: 
+ spark-submit producer.py
+ spark-submit consumer.py
+
+for question2:
+ spark-submit question2.py
+
+for question3:
+ spark-submit --driver-memory 2g question3.py hdfs:///input ratings.dat
+ 
+
+
+

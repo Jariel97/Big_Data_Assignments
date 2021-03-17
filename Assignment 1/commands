@@ -1,0 +1,25 @@
+ hdfs dfs -mkdir /input
+ hdfs dfs -put soc-LiveJournal1Adj.txt /input/soc-LiveJournal1Adj.txt
+ hdfs dfs -put userdata.txt /input/userdata.txt
+
+for question1
+ hdfs dfs -rm -r /out1
+ hadoop jar MutualFriends.jar Q1MutualFriends /input/soc-LiveJournal1Adj.txt /out1/out
+ hdfs dfs -cat /out1/out/part-r-00000 | grep "<user A>, <user B> <press Ctrl+v tab>"
+
+for question2
+ hdfs dfs -rm -r /out2
+ hadoop jar Q2MaxPair.jar MaxPair /input/soc-LiveJournal1Adj.txt /out2/int_out /out2/out
+ hdfs dfs -cat /out2/out/*
+
+for question3
+ hdfs dfs -rm -r /out3
+ hadoop jar Q3InMemory.jar InMemory 20 28193 /input/soc-LiveJournal1Adj.txt /out3/int_out /input/userdata.txt /out3/out
+ hdfs dfs -cat /out3/out/*
+
+for question4
+ hdfs dfs -rm -r /out4
+ hadoop jar Q4Reducer.jar ReducerMemory /input/userdata.txt /input/soc-LiveJournal1Adj.txt /input/userdata.txt /out4/int_out /out4/out
+ hdfs dfs -cat /out4/out/*
+
+

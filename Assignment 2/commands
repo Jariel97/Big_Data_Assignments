@@ -1,0 +1,37 @@
+ hdfs dfs -mkdir /input3
+ hdfs dfs -put business.csv /input3/business.csv
+ hdfs dfs -put review.csv /input3/review.csv
+ hdfs dfs -put user.csv /input3/user.csv
+ hdfs dfs -put soc-LiveJournal1Adj.txt /input3/soc-LiveJournal1Adj.txt
+
+for question1
+ hdfs dfs -rm -r /output1
+ spark-submit question1.py hdfs:// /input3/soc-LiveJournal1Adj.txt /output1
+ hdfs dfs -cat /output1/*
+
+for question2
+ hdfs dfs -rm -r /output2
+ spark-submit question3.py hdfs:// /input3/soc-LiveJournal1Adj.txt Stanford /output2
+ hdfs dfs -cat /output2/*
+
+for question3
+ hdfs dfs -rm -r /output3
+ spark-submit question3.py hdfs:// /input3/business.csv /input3/review.csv Stanford /output3
+ hdfs dfs -cat /output3/*
+
+for question4
+ hdfs dfs -rm -r /output4
+ spark-submit question4.py hdfs:// /input3/business.csv /input3/review.csv /output4
+ hdfs dfs -cat /output4/*
+
+for question5
+ hdfs dfs -rm -r /output5
+ spark-submit question5.py hdfs:// /input3/business.csv /output5
+ hdfs dfs -cat /output5/*
+
+for question6
+ hdfs dfs -rm -r /output6
+ spark-submit question6.py hdfs:// /input3/business.csv /output6
+ hdfs dfs -cat /output6/*
+
+
